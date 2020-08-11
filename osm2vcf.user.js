@@ -205,11 +205,9 @@ function osm2vcf (osm) {
 function vCardWriter (data) {
     vcf_string = "BEGIN:VCARD";
     vcf_string += "\r\nVERSION:" + CONFIG.vCard.version;
-    vcf_string += "\r\nPRODID:OSM2VCF Userscript";
-    vcf_string += "\r\nREV:" + new Date().toISOString();
 
-    if (data.KIND) {
-        vcf_string += "\r\nKIND:" + data.KIND;
+    if (data.FN) {
+        vcf_string += "\r\nFN:" + data.FN;
     }
     if (data.GEO) {
         vcf_string += "\r\nGEO:" + data.GEO;
@@ -217,25 +215,7 @@ function vCardWriter (data) {
     if (data.ADR) {
         vcf_string += "\r\nADR:" + data.ADR;
     }
-    if (data.FN) {
-        vcf_string += "\r\nFN:" + data.FN;
-    }
-    if (data.TEL) {
-        vcf_string += "\r\nTEL:" + data.TEL;
-    }
-    if (data.URI) {
-        vcf_string += "\r\nURI:" + data.URI;
-    }
-    if (data.ORG) {
-        vcf_string += "\r\nORG:" + data.ORG;
-    }
-    if (data.EMAIL) {
-        vcf_string += "\r\nEMAIL:" + data.EMAIL;
-    }
-    if (data.NOTE) {
-        vcf_string += "\r\nNOTE:" + data.NOTE;
-    }
-
+    
     vcf_string += "\r\nEND:VCARD";
     return vcf_string;
 }
