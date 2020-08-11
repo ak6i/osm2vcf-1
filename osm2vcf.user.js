@@ -176,7 +176,7 @@ function osm2vcf (osm) {
     }
 
     if (osm.lat) {
-        vcf['GEO'] = osm.lat + ',' + osm.lon;
+        vcf['GEO'] = osm.lat + ';' + osm.lon;
     }
     if (osm.name) {
         vcf['ORG'] = osm.name;
